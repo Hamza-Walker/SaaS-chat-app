@@ -1,5 +1,5 @@
 import React from "react";
-import logoImage from "@logos/orange.png";
+import logoImage from "@logos/black.png";
 import Link from "next/link";
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
@@ -20,6 +20,7 @@ function Logo() {
             height={100} // Example height, adjust as needed
             className="dark:filter dark:invert"
           />
+          <h1 className="text-2xl">Chat App</h1>
         </AspectRatio>
       </div>
     </Link>
