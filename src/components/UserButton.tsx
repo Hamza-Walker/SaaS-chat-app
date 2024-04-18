@@ -10,10 +10,12 @@ import {
 import UserAvatar from "./UserAvatar";
 
 function UserButton() {
+
+	// Session .. 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <UserAvatar />
+        <UserAvatar name="Hamza Walker" image={"https://avatars.githubusercontent.com/u/64838536?s=400&u=16f40ee9f72bab964f78a1b18ae1a7141fd7dff5&v=4"} className="" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
