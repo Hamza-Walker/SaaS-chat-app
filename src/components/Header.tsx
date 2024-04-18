@@ -8,6 +8,7 @@ import { MessagesSquareIcon } from "lucide-react";
 
 async function Header() {
 	const session = await auth();
+	console.log(session)
 	return (
 		<div>
 			<header className=" sticky top-0 z-50 bg-white dark:bg-gray-900">
