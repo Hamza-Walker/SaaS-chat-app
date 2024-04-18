@@ -1,6 +1,7 @@
 import DarkModeToggle from "./DarkModeToggle";
-import Logo from "./Logo";  
+import Logo from "./Logo";
 import React from "react";
+import UserButton from "./UserButton";
 function Header() {
   return (
     <div>
@@ -12,8 +13,8 @@ function Header() {
 
             {/* sessions &&
              */}
-<DarkModeToggle />
-        {/* USer botton */}
+            <DarkModeToggle />
+            <UserButton />
           </div>
         </nav>
         {/* upgrade banner */}
