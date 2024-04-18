@@ -1,10 +1,9 @@
 import "./globals.css";
-
-import Header from "../components/Header";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ClientProviders from "@/components/ClientProviders";
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +20,7 @@ export default function RootLayout({
 	return (
 		<ClientProviders>
 			<html lang="en">
-				<body className={inter.className}>
+				<body className={ "flex flex-col min-h-screen:width: ,"}>
 					<ThemeProvider
 						attribute="class"
 						defaultTheme="system"

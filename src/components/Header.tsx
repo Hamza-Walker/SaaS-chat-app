@@ -5,10 +5,11 @@ import UserButton from "./UserButton";
 import { auth } from "../../auth";
 import Link from "next/link";
 import { MessagesSquareIcon } from "lucide-react";
+import CreateChatButton from "./CreateChatButton";
 
 async function Header() {
 	const session = await auth();
-	console.log(session)
+	console.log(session);
 	return (
 		<div>
 			<header className=" sticky top-0 z-50 bg-white dark:bg-gray-900">
@@ -22,14 +23,13 @@ async function Header() {
 								<Link href={"/chat"} prefetch={false}>
 									<MessagesSquareIcon className="text-black dark:text-white" />
 								</Link>
+								<CreateChatButton />
 							</>
-						):(
-								<>
-								<Link href={"/pricing"}>
-										Pricing
-								</Link>
-								</>
-						)}  
+						) : (
+							<>
+								<Link href={"/pricing"}>Pricing</Link>
+							</>
+						)}
 						<DarkModeToggle />
 						<UserButton session={session} />
 					</div>
