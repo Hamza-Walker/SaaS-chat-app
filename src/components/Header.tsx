@@ -16,17 +16,19 @@ async function Header() {
 					<div className="flex-1 flex items-center justify-end space-x-4">
 						{/* language switcher */}
 
-						{ session &&
-             <>
-								<Link href={'/chat'} prefetch={false}>
-								<MessagesSquareIcon 
-								className="text-black dark:text-white"	
-								/>
+						{session ? (
+							<>
+								<Link href={"/chat"} prefetch={false}>
+									<MessagesSquareIcon className="text-black dark:text-white" />
 								</Link>
-								
-
-	     </>
-						}
+							</>
+						):(
+								<>
+								<Link href={"/pricing"}>
+										Pricing
+								</Link>
+								</>
+						)}  
 						<DarkModeToggle />
 						<UserButton />
 					</div>
