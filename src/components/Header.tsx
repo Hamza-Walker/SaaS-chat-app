@@ -3,10 +3,11 @@ import Logo from "./Logo";
 import React from "react";
 import UserButton from "./UserButton";
 import { auth } from "../../auth";
+import Link from "next/link";
+import { MessagesSquareIcon } from "lucide-react";
 
 async function Header() {
 	const session = await auth();
-
 	return (
 		<div>
 			<header className=" sticky top-0 z-50 bg-white dark:bg-gray-900">
@@ -15,8 +16,17 @@ async function Header() {
 					<div className="flex-1 flex items-center justify-end space-x-4">
 						{/* language switcher */}
 
-						{/* sessions &&
-             */}
+						{ session &&
+             <>
+								<Link href={'/chat'} prefetch={false}>
+								<MessagesSquareIcon 
+								className="text-black dark:text-white"	
+								/>
+								</Link>
+								
+
+	     </>
+						}
 						<DarkModeToggle />
 						<UserButton />
 					</div>
