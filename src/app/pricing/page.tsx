@@ -27,7 +27,9 @@ function PricingPage() {
           </svg>
         </div>
       </div>
-        <div className="-mt-0 pb-20"><PricingCard /></div>
+        <div className="-mt-0 pb-20">
+		<PricingCard redirect={true} />
+	</div>
     </div>
   );
 }
