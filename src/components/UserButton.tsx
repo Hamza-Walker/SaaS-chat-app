@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import {
 	DropdownMenu,
@@ -11,16 +10,22 @@ import {
 import UserAvatar from "./UserAvatar";
 import { Session } from "next-auth";
 import { Button } from "./ui/button";
-import { signIn, signOut } from "next-auth/react";
+import { signIn, signOut } from "auth";
 
 function UserButton({ session }: { session: Session | null }) {
 
 	// subscription listener 
 	if (!session) {
 		return (
-			<Button variant="outline" onClick={() => signIn("google")}>
-				Sign In
-			</Button>
+			<form action={async () => {
+				"use server"
+				await signIn();
+			}}>
+				<Button variant="outline">
+					Sign In
+				</Button>
+			</form>
+
 		);
 	} else {
 		return (
@@ -36,9 +41,16 @@ function UserButton({ session }: { session: Session | null }) {
 					<DropdownMenuContent>
 						<DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem onClick={()=> signOut()}>Sign Out </DropdownMenuItem>
+							<form action={async () => {
+								"use server"
+								await signOut("google");
+							}}>
+					<Button variant="outline" className="w-full">
+								Sign Out
+							</Button>
+						</form>
 					</DropdownMenuContent>
-				</DropdownMenu>
+				</DropdownMenu >
 			)
 		);
 	}
