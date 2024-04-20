@@ -1,6 +1,18 @@
+"use client";
 import React from "react";
+import { auth } from "../../auth";
 
-function CheckoutButton() {
+async function CheckoutButton () {
+	 const session = await auth()
+	const createCheckoutSession = async () => {
+		if (!session) {
+			return;
+		}
+		// create checkout session	
+		// oush document to firebase db 
+		// stripe extesntion on firebase will create a checkout session 
+		// redirect user to checkout page 
+	}
 	return (
 		<div className="flex flex-col space-y-2">
 			{/* if subscribed show me the user is subscribed */}
