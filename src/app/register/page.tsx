@@ -1,6 +1,6 @@
-import React from "react";
-import { auth } from "../../../auth";
 import PricingCards from "@/components/PricingCards";
+import React from "react";
+import { auth } from "../api/auth/[...nextauth]/auth";
 
 async function RegistrationPage() {
 	const session = await auth();

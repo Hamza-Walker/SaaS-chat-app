@@ -1,6 +1,7 @@
 "use client";
+
 import React from "react";
-import { auth } from "../../auth";
+import { auth } from "../app/api/auth/[...nextauth]/auth";
 
 async function CheckoutButton () {
 	 const session = await auth()

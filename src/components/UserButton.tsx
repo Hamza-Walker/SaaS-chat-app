@@ -1,4 +1,3 @@
-import React from "react";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -7,10 +6,12 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import UserAvatar from "./UserAvatar";
-import { Session } from "next-auth";
+import { signIn, signOut } from "@/app/api/auth/[...nextauth]/auth";
+
 import { Button } from "./ui/button";
-import { signIn, signOut } from "auth";
+import React from "react";
+import { Session } from "next-auth";
+import UserAvatar from "./UserAvatar";
 
 function UserButton({ session }: { session: Session | null }) {
 
@@ -43,7 +44,7 @@ function UserButton({ session }: { session: Session | null }) {
 						<DropdownMenuSeparator />
 							<form action={async () => {
 								"use server"
-								await signOut("google");
+								await signOut();
 							}}>
 					<Button variant="outline" className="w-full">
 								Sign Out

@@ -1,11 +1,11 @@
+import CreateChatButton from "./CreateChatButton";
 import DarkModeToggle from "./DarkModeToggle";
+import Link from "next/link";
 import Logo from "./Logo";
+import { MessagesSquareIcon } from "lucide-react";
 import React from "react";
 import UserButton from "./UserButton";
-import { auth } from "../../auth";
-import Link from "next/link";
-import { MessagesSquareIcon } from "lucide-react";
-import CreateChatButton from "./CreateChatButton";
+import { auth } from "../app/api/auth/[...nextauth]/auth";
 
 async function Header() {
 	const session = await auth();
