@@ -1,5 +1,5 @@
-import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import NextAuth from "next-auth";
 
 export const { auth, handlers } = NextAuth({
 	providers: [
@@ -11,6 +11,6 @@ export const { auth, handlers } = NextAuth({
 	session: {
 		strategy: "jwt",
 	},
-
 	secret: process.env.AUTH_SECRET,
+
 });

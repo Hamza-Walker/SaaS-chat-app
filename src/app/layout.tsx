@@ -1,11 +1,9 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ClientProviders from "@/components/ClientProviders";
 import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -20,7 +18,7 @@ export default function RootLayout({
 	return (
 		<ClientProviders>
 			<html lang="en">
-				<body className={ "flex flex-col min-h-screen:width: ,"}>
+				<body className={ "flex flex-col min-h-screen"}>
 					<ThemeProvider
 						attribute="class"
 						defaultTheme="system"
