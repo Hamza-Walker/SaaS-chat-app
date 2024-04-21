@@ -12,7 +12,7 @@ import { useSession } from "next-auth/react";
 
 function Header() {
 	const { data: session } = useSession();
-	console.log(session);
+	//console.log(session);
 	return (
 		<div>
 			<header className=" sticky top-0 z-50 bg-white dark:bg-gray-900">
@@ -34,7 +34,7 @@ function Header() {
 							</>
 						)}
 						<DarkModeToggle />
-						<UserButton session={session} />
+						<UserButton  />
 					</div>
 				</nav>
 				{/* upgrade banner */}

@@ -1,6 +1,7 @@
 import { authOptions } from "../../auth/[...nextauth]"; // Adjust the import path as necessary
 // pages/api/session.js
 import { getServerSession } from "next-auth/next";
+/*
 
 async function getrequest (req, res) {
  const session = await getServerSession(req, res, authOptions);
@@ -13,5 +14,6 @@ async function getrequest (req, res) {
     res.status(401).json({ error: 'Not authenticated' });
  }
 };
+*/
 
 export default getrequest

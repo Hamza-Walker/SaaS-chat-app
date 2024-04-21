@@ -14,7 +14,7 @@ const credentialsConfig = CredentialsProvider({
 			type: "password", 
 		},
 	},
-	async authorize(credentials) {
+	/*	async authorize(credentials) {
 		const csrfToken = await getCsrfToken();
 
 		const res = await fetch(
@@ -31,14 +31,14 @@ const credentialsConfig = CredentialsProvider({
 
 		);
 		const user = await res.json();
-		console.log(user)
+		//console.log(user)
 
 		if (user) {
 			return user;
 		} else {
 			return null;
 		}
-	},
+	},*/
 });
 
 
