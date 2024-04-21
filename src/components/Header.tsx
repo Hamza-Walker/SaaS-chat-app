@@ -1,3 +1,5 @@
+"use client";
+
 import CreateChatButton from "./CreateChatButton";
 import DarkModeToggle from "./DarkModeToggle";
 import Link from "next/link";
@@ -6,9 +8,10 @@ import { MessagesSquareIcon } from "lucide-react";
 import React from "react";
 import UserButton from "./UserButton";
 import { auth } from "../app/api/auth/[...nextauth]/auth";
+import { useSession } from "next-auth/react";
 
-async function Header() {
-	const session = await auth();
+function Header() {
+	const { data: session } = useSession();
 	console.log(session);
 	return (
 		<div>
