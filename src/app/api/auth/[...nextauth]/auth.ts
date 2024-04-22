@@ -31,18 +31,6 @@ const config = {
 		},
 	},
 
-	/*callbacks: {
-		async jwt({ token, user }) {
-			if (user) {
-				token.user = user;
-			}
-			return token;
-		},
-		async session({ session, token }) {
-			session.user = token.user;
-			return session;
-		},
-	},*/
 	debug: true, // Enable debug mode for more detailed logs
 } satisfies NextAuthConfig;
 
