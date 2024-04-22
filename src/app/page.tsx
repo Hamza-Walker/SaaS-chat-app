@@ -3,8 +3,8 @@ import Link from "next/link";
 import { auth } from "./api/auth/[...nextauth]/auth";
 
 export default async function Home() {
-	const session = await auth();
-	console.log(session);
+//	const session = await auth();
+//	console.log(session);
 
 	return (
 		<main>

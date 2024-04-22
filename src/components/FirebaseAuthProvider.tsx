@@ -1,12 +1,12 @@
 "use client";
 
-import { signOut } from "@/app/api/auth/[...nextauth]/auth";
-import { signInWithCustomToken } from "firebase/auth";
-import { Session } from "next-auth";
-import { useSession } from "next-auth/react";
 import React, { useEffect } from "react";
-import { firebaseAuth } from "../../firebase";
 
+import { Session } from "next-auth";
+import { firebaseAuth } from "../../firebase";
+import { signInWithCustomToken } from "firebase/auth";
+import { signOut } from "@/app/api/auth/[...nextauth]/auth";
+import { useSession } from "next-auth/react";
 
 async function syncFirebasAuth(session: Session) {
   if (session && session.firebaseToken) {
@@ -22,11 +22,14 @@ function FirebaseAuthProvider({ children }: { children: React.ReactNode }) {
   const { data: session } = useSession();
 
   useEffect(() => {
-    if (!session) return;
-    syncFirebasAuth(session);
-  }, [session]);
+    const sync = async () => {
+       if (!session) return;
+       await syncFirebasAuth(session);
+    };
+    sync();
+   }, [session]);
 
-  return <>{children}</>;
-}
+   return {children};
+  }
 
 export default FirebaseAuthProvider;
