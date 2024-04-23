@@ -7,12 +7,10 @@ import Logo from "./Logo";
 import { MessagesSquareIcon } from "lucide-react";
 import React from "react";
 import UserButton from "./UserButton";
-import { auth } from "../app/api/auth/[...nextauth]/auth";
 import { useSession } from "next-auth/react";
 
 function Header() {
 	const { data: session } = useSession();
-	//console.log(session);
 	return (
 		<div>
 			<header className=" sticky top-0 z-50 bg-white dark:bg-gray-900">

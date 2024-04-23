@@ -1,12 +1,10 @@
-import NextAuth,{DefaultSession} from "next-auth";
-
+import NextAuth, { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
-	interface Session {
-		firebaseToken?: string
-		user: {
-			id: string
-		} & DefaultSession["user"];
-	}
+  interface Session {
+    user: {
+      id: string;
+      firebaseToken?: string;
+    } & DefaultSession["user"];
+  }
 }
-

@@ -18,12 +18,12 @@ const config = {
 				if (token.sub) {
 					session.user.id = token.sub
 					const firbaseToken = await AdminAuth.createCustomToken(token.sub);
-					session.firebaseToken = firbaseToken;
+					session.user.firebaseToken = firbaseToken;
 				}
 			}
 			return session;
 		},
-		jwt({ token, user }) {
+		jwt: async ({ token, user }) => {
 			if (user) {
 				token.sub = user.id;
 			}
@@ -31,7 +31,7 @@ const config = {
 		},
 	},
 
-	debug: true, // Enable debug mode for more detailed logs
+	//debug: true, // Enable debug mode for more detailed logs
 } satisfies NextAuthConfig;
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config);

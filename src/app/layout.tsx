@@ -4,7 +4,6 @@ import ClientProviders from "@/components/ClientProviders";
 import Header from "@/components/Header";
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { auth } from "./api/auth/[...nextauth]/auth";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +16,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const session = await auth();
 
   return (
     <ClientProviders>
