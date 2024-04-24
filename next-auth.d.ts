@@ -5,6 +5,6 @@ declare module "next-auth" {
     user: {
       id: string;
       firebaseToken?: string;
-    } & DefaultSession["user"];
+ } & DefaultSession["user"];
   }
 }
