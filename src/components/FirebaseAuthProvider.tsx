@@ -11,10 +11,12 @@ import { useSession } from "next-auth/react";
 async function syncFirebasAuth(session: Session) {
   if (session && session.user.firebaseToken) {
     try {
-      await signInWithCustomToken(firebaseAuth , session.user.firebaseToken);
-    } catch (error) {}
+      await signInWithCustomToken(firebaseAuth, session.user.firebaseToken);
+    } catch (error) {
+      console.log("Error signing in with custom token:", error);
+    }
   } else {
-	  signOut()
+    signOut();
   }
 }
 
@@ -23,13 +25,13 @@ function FirebaseAuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const sync = async () => {
-       if (!session) return;
-       await syncFirebasAuth(session);
+      if (!session) return;
+      await syncFirebasAuth(session);
     };
     sync();
-   }, [session]);
+  }, [session]);
 
-   return <>{children}</>;
-  }
+  return <>{children}</>;
+}
 
 export default FirebaseAuthProvider;

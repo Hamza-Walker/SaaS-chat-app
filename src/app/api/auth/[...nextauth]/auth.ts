@@ -3,7 +3,8 @@ import NextAuth from "next-auth";
 import google from "next-auth/providers/google";
 import credentialsConfig from "../../../../../credentials-configuration";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
-import { AdminAuth, adminDb } from "../../../../../firebase-admin";
+import { adminDb, AdminAuth } from "../../firebase-admin";
+
 
 const config = {
   providers: [google, credentialsConfig],
