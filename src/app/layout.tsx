@@ -19,6 +19,7 @@ export default async function RootLayout({
     <ClientProviders>
       <html lang="en">
         <body className={"flex flex-col min-h-screen"}>
+          <FirebaseAuthProvider>
             <ThemeProvider
               attribute="class"
               defaultTheme="system"
@@ -28,6 +29,7 @@ export default async function RootLayout({
               <Header />
               {children}
             </ThemeProvider>
+          </FirebaseAuthProvider>
         </body>
       </html>
     </ClientProviders>
