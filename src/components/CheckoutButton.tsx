@@ -10,7 +10,7 @@ function CheckoutButton() {
   const createCheckoutSession = () => {
     if (!session) return;
     setLoading(true);
-
+ 
     // Using Promises directly with .then() and .catch()
     addDoc(collection(db, "customers", session.user?.id, "checkout_sessions"), {
       price: "price_1PAneH06UTZ8nZjb7oPWCnJD",
