@@ -13,7 +13,7 @@ function CheckoutButton() {
  
     // Using Promises directly with .then() and .catch()
     addDoc(collection(db, "customers", session.user?.id, "checkout_sessions"), {
-      price: "price_1PAneH06UTZ8nZjb7oPWCnJD",
+      price: "price_1PBWab06UTZ8nZjbnRkD4KAZ",
       success_url: window.location.origin,
       cancel_url: window.location.origin,
     })
