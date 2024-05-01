@@ -1,0 +1,20 @@
+import { FirestoreDataConverter, QueryDocumentSnapshot } from "firebase-admin/firestore";
+import { Subscription } from "../../../types/Subscription";
+import { adminDb } from "@/app/api/firebase-admin";
+
+// Define your converter as before
+const subscriptionConverter: FirestoreDataConverter<Subscription> = {
+  toFirestore: (subscription: Subscription) => subscription,
+  fromFirestore: (snapshot: QueryDocumentSnapshot) => snapshot.data() as Subscription,
+};
+
+export const subscriptionRef = (userId: string | undefined) => {
+  // Correctly use the Admin SDK's API to reference a collection
+  const subscriptionsCollectionRef = adminDb.collection('customers').doc(userId).collection('subscriptions');
+
+  // Apply the converter if needed for client-side interactions
+  subscriptionsCollectionRef.withConverter(subscriptionConverter);
+
+  return subscriptionsCollectionRef;
+};
+

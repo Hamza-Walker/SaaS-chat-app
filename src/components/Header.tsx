@@ -1,16 +1,17 @@
 "use client";
-
 import CreateChatButton from "./CreateChatButton";
 import DarkModeToggle from "./DarkModeToggle";
 import Link from "next/link";
 import Logo from "./Logo";
 import { MessagesSquareIcon } from "lucide-react";
 import React from "react";
+import { Upgradebanner } from "./Upgradebanner";
 import UserButton from "./UserButton";
+import { auth } from "../app/api/auth/[...nextauth]/auth";
 import { useSession } from "next-auth/react";
 
 function Header() {
-	const { data: session } = useSession();
+const session = useSession();
 	return (
 		<div>
 			<header className=" sticky top-0 z-50 bg-white dark:bg-gray-900">
@@ -36,6 +37,7 @@ function Header() {
 					</div>
 				</nav>
 				{/* upgrade banner */}
+<Upgradebanner />
 			</header>
 		</div>
 	);

@@ -1,3 +1,5 @@
+'use client';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,9 +15,8 @@ import React from "react";
 import UserAvatar from "./UserAvatar";
 
 function UserButton() {
-  const { data: session } = useSession(); // Use the useSession hook to access session data
-
-  if (!session) {
+  const { data: session } = useSession();
+	if (!session) {
     return (
       <Button onClick={() => signIn()} variant="outline">
         Sign In
