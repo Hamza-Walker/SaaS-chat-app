@@ -1,8 +1,10 @@
 "use client";
+
 import React, { useState } from "react";
-import { useSession } from "next-auth/react";
-import { db } from "../../firebase";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
+
+import { db } from "../../firebase";
+import { useSession } from "next-auth/react";
 
 function CheckoutButton() {
   const { data: session } = useSession();
@@ -22,6 +24,7 @@ function CheckoutButton() {
           const data = snap.data();
           const url = data?.url;
           const error = data?.error;
+          console.log(data)
           if (error) {
             alert(`Error: ${error.message}`);
             setLoading(false);
