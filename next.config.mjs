@@ -17,7 +17,8 @@ const nextConfig = {
 			fs: false, // Add this line
 			net: false, // Add this line to ignore 'net'
 			tls: false, // Add this line to ignore 'tls'
-		child_process: false
+			dns: false, // Add this line to ignore 'dns'
+			child_process: false
 		};
 		return config;
 	},

@@ -1,0 +1,1 @@
+ALTER TABLE "payment_info" ALTER COLUMN "id" SET DATA TYPE integer;
