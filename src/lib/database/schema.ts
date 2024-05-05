@@ -1,8 +1,8 @@
-import { integer, jsonb, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
+import { jsonb, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
 // Define the User Schema with Firebase Token
 export const $user = pgTable("user", {
-  id: integer("id").primaryKey(),
+  id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").unique().notNull(),
   imageURL: text("image_url"),
@@ -12,7 +12,7 @@ export const $user = pgTable("user", {
 // Define the Session Schema with User Reference
 export const $session = pgTable("session", {
   id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => $user.id).notNull(), // Updated to match the type of user.id
+  userId: text("user_id").references(() => $user.id).notNull(),
   user: jsonb("user").notNull(), // Storing user details as a JSON object
   expires: timestamp("expires").notNull(), // Storing the session expiration time
 });

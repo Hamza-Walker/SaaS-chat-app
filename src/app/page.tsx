@@ -4,7 +4,7 @@ import { auth } from "./api/auth/[...nextauth]/auth";
 
 export default async function Home() {
 	const session = await auth();
-	console.log(session);
+//	console.log(session);
 
 	return (
 		<main>

@@ -4,6 +4,7 @@ import google from "next-auth/providers/google";
 import credentialsConfig from "../../../../../credentials-configuration";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { adminDb, AdminAuth } from "../../firebase-admin";
+import { findOrCreateUser } from "./findorcreateUser";
 
 
 const config = {
@@ -18,7 +19,7 @@ const config = {
           session.user.id = token.sub;
           const firbaseToken = await AdminAuth.createCustomToken(token.sub);
           session.user.firebaseToken = firbaseToken;
-        }
+				}
       }
       return session;
     },
